@@ -11,11 +11,11 @@ import { TestSuite, InputType } from "@jovotech/framework";
 |
 */
 
-
+const testSuite = new TestSuite();
 
 test("new test", async () => {
 
-  // const testSuite = new TestSuite();
+  
 
   expect(1).toEqual(2);
 });
