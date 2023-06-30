@@ -1,8 +1,8 @@
 import { Component, Global, Jovo } from '@jovotech/framework';
 import { LoveHatePizzaComponent } from './LoveHatePizzaComponent';
-import { TestingDelegateComponent } from './TestingDelegateComponent';
 import { BaseComponent } from '../classes/BaseComponent';
 import { Testing2DelegateComponent } from './Testing2DelegateComponent';
+import { ExtractDelegatedEventData } from '../classes/BaseDelegateComponent';
 
 /*
 |--------------------------------------------------------------------------
@@ -23,12 +23,18 @@ export class GlobalComponent extends BaseComponent {
   async TESTING() {
     return this.$delegate(Testing2DelegateComponent, {
       resolve: {
-        completed: "",
+        completed: this.onTestingCompleted,
       },
     });
   }
 
-  //async onTestingCompleted(data: ExtractEventParameters<TestingDelegateComponent, 'eventName'>) {}
+  async onTestingCompleted(
+    ...data: ExtractDelegatedEventData<Testing2DelegateComponent, 'completed'>
+  ) {
+
+    await this.$send(`Completed Returned: ${JSON.stringify(data)}`);
+    await this.$redirect(GlobalComponent, 'END');
+  }
 
   END() {
     return this.$send(`END`);

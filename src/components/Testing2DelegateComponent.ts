@@ -3,9 +3,10 @@ import { BaseDelegateComponent } from "../classes/BaseDelegateComponent";
 
 @Component()
 export class Testing2DelegateComponent extends BaseDelegateComponent<{
-  completed: [string];
+  completed: [boolean, boolean, string];
 }> {
   async START() {
-    return this.$resolve("completed", "a");
+    await this.$send("START from TestingComponent");
+    return this.$resolve("completed", true, false, "A");
   }
 }

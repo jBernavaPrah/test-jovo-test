@@ -21,6 +21,6 @@ export class BaseComponent<
       Extract<keyof ExtractDelegatedFunction<COMPONENT>, string>
     >,
   ): Promise<void> {
-    return super.$delegate(constructor as ComponentConstructor<COMPONENT>, options);
+    return super.$delegate(constructor as string, options);
   }
 }

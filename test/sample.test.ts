@@ -1,5 +1,6 @@
-
-import { TestSuite, InputType } from "@jovotech/framework";
+import { TestSuite, InputType } from '@jovotech/framework';
+import { GlobalComponent } from '../src/components/GlobalComponent';
+import { Testing2DelegateComponent } from '../src/components/Testing2DelegateComponent';
 
 /*
 |--------------------------------------------------------------------------
@@ -11,13 +12,33 @@ import { TestSuite, InputType } from "@jovotech/framework";
 |
 */
 
+const testSuite = new TestSuite();
 
+test('new test', async () => {
+  // Cause the HandlerNotFoundError: Could not find handler mockConstructor in component GlobalComponent.
+  //const spyInstance = jest.spyOn(GlobalComponent.prototype, 'onTestingCompleted');
 
-test("new test", async () => {
+  const spyTestingInstance = jest.spyOn(Testing2DelegateComponent.prototype, 'START');
 
-  // const testSuite = new TestSuite();
+  const result = await testSuite.run({
+    intent: 'TESTING',
+  });
 
-  expect(1).toEqual(2);
+  expect(result).toEqual({
+    output: [
+      {
+        message: 'Completed !',
+      },
+      {
+        message: 'END',
+      },
+    ],
+    response: {
+      isTestResponse: true,
+      shouldEndSession: true,
+    },
+  });
+
+  expect(spyTestingInstance).toBeCalledTimes(1);
+  //expect(spyInstance).toBeCalledTimes(1);
 });
-
-
