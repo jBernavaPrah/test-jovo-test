@@ -2,7 +2,7 @@ import { App } from '@jovotech/framework';
 
 import { GlobalComponent } from './components/GlobalComponent';
 import { LoveHatePizzaComponent } from './components/LoveHatePizzaComponent';
-import { Testing2DelegateComponent } from "./components/Testing2DelegateComponent";
+import { TestingDelegateComponent } from "./components/TestingDelegateComponent";
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +23,7 @@ const app = new App({
   | Learn more here: www.jovo.tech/docs/components
   |
   */
-  components: [GlobalComponent, LoveHatePizzaComponent, Testing2DelegateComponent],
+  components: [GlobalComponent, LoveHatePizzaComponent, TestingDelegateComponent],
 
   /*
   |--------------------------------------------------------------------------
