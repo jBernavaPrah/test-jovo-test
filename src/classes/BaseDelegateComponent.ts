@@ -1,5 +1,4 @@
-import { BaseComponent } from "./BaseComponent";
-import { ComponentData } from "@jovotech/framework";
+import { BaseComponent, ComponentData } from "@jovotech/framework";
 import { UnknownObject } from "@jovotech/common";
 
 export type ExtractDelegatedEventData<

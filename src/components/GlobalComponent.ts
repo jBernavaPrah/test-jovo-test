@@ -1,6 +1,5 @@
-import { Component, Global, Jovo } from '@jovotech/framework';
+import { BaseComponent, Component, Global, Jovo } from "@jovotech/framework";
 import { LoveHatePizzaComponent } from './LoveHatePizzaComponent';
-import { BaseComponent } from '../classes/BaseComponent';
 import { TestingDelegateComponent } from './TestingDelegateComponent';
 import { ExtractDelegatedEventData } from '../classes/BaseDelegateComponent';
 
